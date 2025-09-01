@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinmal Browser</title>
+    <link rel="stylesheet" href="browser.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Browser Toolbar -->
+    <div class="browser-toolbar">
+        <div class="navigation-controls">
+            <button class="nav-btn" id="back-btn" title="Back">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="nav-btn" id="forward-btn" title="Forward">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="nav-btn" id="refresh-btn" title="Refresh">
+                <i class="fas fa-redo"></i>
+            </button>
+            <button class="nav-btn" id="home-btn" title="Home">
+                <i class="fas fa-home"></i>
+            </button>
+        </div>
+
+        <div class="address-bar-container">
+            <input type="text" id="address-bar" placeholder="Search Google or type a URL" autocomplete="off">
+            <button class="search-btn" id="go-btn" title="Go">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="browser-controls">
+            <button class="control-btn" id="bookmarks-btn" title="Bookmarks">
+                <i class="fas fa-bookmark"></i>
+            </button>
+            <button class="control-btn" id="history-btn" title="History">
+                <i class="fas fa-history"></i>
+            </button>
+            <button class="control-btn" id="settings-btn" title="Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="control-btn" id="new-tab-btn" title="New Tab">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <div class="tabs-container" id="tabs-container">
+            <div class="tab active" data-tab-id="tab-1">
+                <span class="tab-title">New Tab</span>
+                <button class="tab-close" title="Close tab">×</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        <div class="tab-content active" id="tab-1">
+            <!-- New Tab Page -->
+            <div class="new-tab-page">
+                <div class="browser-logo">
+                    <i class="fas fa-globe"></i>
+                    <h1>Kinmal Browser</h1>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="quick-search" placeholder="Search the web..." autocomplete="off">
+                    <button class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <div class="links-grid">
+                        <a href="https://www.google.com" class="quick-link" target="_blank">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </a>
+                        <a href="https://www.youtube.com" class="quick-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://www.github.com" class="quick-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.wikipedia.org" class="quick-link" target="_blank">
+                            <i class="fab fa-wikipedia-w"></i>
+                            <span>Wikipedia</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Browser Frame for actual web content -->
+    <iframe id="browser-frame" style="display: none;"></iframe>
+
+    <!-- Modals -->
+    <div id="bookmarks-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bookmarks</h2>
+            <div id="bookmarks-list"></div>
+        </div>
+    </div>
+
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Browsing History</h2>
+            <div id="history-list"></div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <div class="settings-section">
+                <h3>Search Engine</h3>
+                <select id="search-engine">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                </select>
+            </div>
+            <div class="settings-section">
+                <h3>Home Page</h3>
+                <input type="text" id="home-page" placeholder="https://www.google.com">
+            </div>
+        </div>
+    </div>
+
+    <script src="browser.js"></script>
+</body>
+</html>
